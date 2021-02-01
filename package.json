@@ -11,7 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@octokit/core": "^3.2.5",
+    "@octokit/rest": "^18.0.15",
     "@types/assert": "^1.5.2",
     "@types/cors": "^2.8.7",
     "@types/elasticsearch": "^5.0.36",

@@ -1,11 +1,9 @@
-import { Octokit } from "@octokit/core";
-
+import { Octokit } from "@octokit/rest";
 interface searchStuct {
 	searchTerm: string;
 	type: string;
+	searchProps?: any
 }
-const client = new Octokit({ auth: process.env.GITHUB_ACCESS_TOKEN })
-// client.request()
 class Github {
 	client: any
 	constructor() {
@@ -13,17 +11,15 @@ class Github {
 	}
 
 	async search(payload: searchStuct) {
-		if (!Object.keys(mapSearchTypes).includes(payload.type)) throw 'INVALID_SEARCH_TYPE';
-		return await this.client.request(mapSearchTypes[payload.type]);
+		if (!Object.keys(dispatchers).includes(payload.type)) throw 'INVALID_SEARCH_TYPE';
+		return await dispatchers[payload.type](this.client, payload.searchTerm);
 	}
-
 }
 
 export default new Github();
 
-const mapSearchTypes: any = {
-	users: 'GET /users',
-	repositories: 'GET /repositories',
-	issues: 'GET /issues',
-
+const dispatchers: any = {
+	users: async (fn: any, searchTerm: any) => await fn.search.users({ q: `q=${searchTerm}&sort=created&order=asc` }),
+	repositories: async (fn: any, searchTerm: any) => await fn.search.repos({ q: `q=${searchTerm}+language:any&sort=stars&order=desc` }),
+	issues: async (fn: any, searchTerm: any) => await fn.search.issuesAndPullRequests({ q: `q=${searchTerm}&sort=created&order=asc` }),
 }
