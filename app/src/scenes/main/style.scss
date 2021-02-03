@@ -1,0 +1,24 @@
+.main-container {
+    margin: 1rem;
+    background-color: #f2f2f2;
+    .header-container {
+        padding: 1rem;
+        .search-container {
+            display: flex;
+            justify-content: center;
+        }
+    }
+    .content-container {
+        height: 80vh;
+        overflow: auto;
+    }
+    .footer-container {
+        display: flex;
+        height: 3rem;
+        border-radius: 20px;
+        color: #fff;
+        background-color: #04121b;
+        justify-content: center;
+        align-items: center;
+    }
+}
