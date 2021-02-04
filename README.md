@@ -13,7 +13,7 @@ As the name suggests, this project is the resolution of the Fullstack developer 
 
 #### BackEnd
 * For handling server requests: `Node.js with Express.js Framework on typescript`
-* As Database: `Redis`
+* As Database: `Redis (Docker container)`
 * API tested using: `POSTMAN`
 
 ## Guidelines to setup
