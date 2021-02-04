@@ -1,4 +1,24 @@
-.main-container{
-    display: flex;
-    flex-direction: column;
+.selector-container {
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	clear: both;
+	font-size: 1rem;
+	position: relative;
+	text-align: inherit;
+	display: flex;
+	flex-flow: column;
+
+	.selector {
+		box-shadow: inset 0 0.0625em 0.125em rgba(10, 10, 10, 0.05);
+		max-width: 100%;
+		font-size: 16px;
+		width: 100%;
+		line-height: 1.5em;
+		padding: 0.5em 3.5em 0.5em 1em;
+		background: #f4f4f4;
+		border-radius: 35px;
+		border: transparent solid 2px;
+		position: relative;
+		display: inline-block;
+	}
 }

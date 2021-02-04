@@ -11,6 +11,5 @@ app.use(bodyparser.json());
 app.use(responseTime());
 
 app.use('/api', routes.api);
-app.use('/github', routes.github);
 
 export { app };

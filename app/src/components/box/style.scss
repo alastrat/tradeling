@@ -8,8 +8,9 @@ $blue: #04121b;
 	margin: 10px;
 	border-radius: 20px;
 	overflow: hidden;
-	max-width: 25rem;
+	max-width: 29rem;
 	border: 1px solid $blue;
+	cursor: pointer;
 
 	&:hover {
 		.box-img {
@@ -21,10 +22,12 @@ $blue: #04121b;
 		}
 		.box-info {
 			height: 90%;
-			padding: 10px 0 0;
-		}
-		.box-info .box-info-r3 {
-			height: 30%;
+			padding: 0 10px;
+			.box-info-r3 {
+				height: 3rem;
+				overflow-y: scroll;
+				padding: 0 20px;
+			}
 		}
 	}
 
@@ -55,9 +58,20 @@ $blue: #04121b;
 			float: right;
 			margin: 0 5px;
 		}
+		.box-info-r1 {
+			#title {
+				font-weight: 700;
+			}
+		}
 		.box-info-r3 {
 			height: 0;
 			transition: height $speed, padding $speed;
 		}
+	}
+}
+
+@media only screen and (max-width: 768px) {
+	.box-container {
+		width: 35%;
 	}
 }

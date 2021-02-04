@@ -1,41 +1,47 @@
-import React, { useEffect, useState } from "react";
-import githubLogo from "../../assets/img/github-logo.png";
-import "./style.scss";
+import React, { useCallback, useEffect, useState } from 'react';
+import githubLogo from '../../assets/img/github-logo.png';
+import './style.scss';
 
 interface BoxProps {
-  inStage?: number;
+	githubResponse: any;
 }
 
-export const Box: React.SFC<BoxProps> = ({ inStage }) => {
-  const [color, setColor] = useState('');
+export const Box: React.SFC<BoxProps> = ({ githubResponse }) => {
+	const [ color, setColor ] = useState('');
 
-  useEffect(() => {
-    setColor(randomColor())
-  }, [])
+	useEffect(() => {
+		setColor(randomColor());
+	}, []);
 
-  return (
-    <div className="box-container">
-      <div className="box-img" style={{ backgroundColor: color }}>
-        <img src={githubLogo} alt="octo-logo" />
-      </div>
-      <div className="box-info">
-        <div className="box-info-r1">
-          <span >Title</span>
-          <span id="stats">Stars</span>
-          <span id="stats">Forks</span>
-        </div>
-        <div className="box-info-r2">
-          <span>Author</span>
-          <span id="stats">Lenguage</span>
-        </div>
-        <div className="box-info-r3">
-          <p>Description</p>
-        </div>
-      </div>
-    </div>
-  );
+	const handleGoRepository = useCallback(
+		() => {
+			window.open(githubResponse.html_url);
+		},
+		[ githubResponse ]
+	);
+
+	return (
+		<div className="box-container" onClick={handleGoRepository}>
+			<div className="box-img" style={{ backgroundColor: color }}>
+				<img src={githubLogo} alt="octo-logo" />
+			</div>
+			<div className="box-info">
+				<div className="box-info-r1">
+					<span id="title">{githubResponse.name}</span>
+					<span id="stats">{githubResponse.forks_count} ⭐ </span>
+				</div>
+				<div className="box-info-r2">
+					<span>{githubResponse.owner.login}</span>
+					<span id="stats">{githubResponse.language || ''}</span>
+				</div>
+				<div className="box-info-r3">
+					<p>{githubResponse.description}</p>
+				</div>
+			</div>
+		</div>
+	);
 };
 
 const randomColor = () => {
-  return "#" + Math.floor(Math.random() * 16777215).toString(16);
-}
+	return '#' + Math.floor(Math.random() * 16777215).toString(16);
+};
