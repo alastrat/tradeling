@@ -5,8 +5,7 @@
   "main": "dist/index.js",
   "scripts": {
     "tsc": "tsc",
-    "dev": "tsnd --respawn server.ts",
-    "start": "nodemon -x \"node clear && dist/index.js"
+    "start": "tsnd --respawn server.ts"
   },
   "author": "",
   "license": "ISC",
