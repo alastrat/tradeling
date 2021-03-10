@@ -1,9 +1,7 @@
-# Tradeling Coding Assessment
+# Github Repo Searcher
 [![NPM](https://img.shields.io/static/v1?label=npm&message=6.14.10&color=blue)](https://shields.io/)
 [![NODE](https://img.shields.io/static/v1?label=node&message=14.15.4&color=success)](https://shields.io/)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](https://shields.io/)
-
-As the name suggests, this project is the resolution of the Fullstack developer assessment provided by Tradeling.
 
 ## My Tech Stack (MERN)
 
